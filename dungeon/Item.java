@@ -1,10 +1,19 @@
 package dungeon;
-public abstract class Item {
-     protected String name;
-     protected String type;
-     protected String desc;
 
-     public Item(String name, String type, String desc){
+public class Item {
+     private String name;
+     private types type;
+     private String desc;
+
+     enum types {
+          ARMOR,
+          TOOL,
+          FOOD,
+          POTION,
+          WEAPON  
+     }
+
+     public Item(String name, types type, String desc){
           this.name = name;
           this.type = type;
           this.desc = desc;
@@ -15,11 +24,17 @@ public abstract class Item {
      }
 
      public String getType(){
-          return this.type;
+          switch (this.type) {
+               case ARMOR: return "Armor";
+               case TOOL: return "Tool";
+               case FOOD: return "Food";
+               case POTION: return "Potion";
+               case WEAPON: return "Weapon";
+               default: return "Unknown";
+          }
      }
 
      public String getDesc(){
           return this.desc;
      }
-
 }

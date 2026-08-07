@@ -1,54 +1,31 @@
 package dungeon;
 
-public abstract class Weapon extends Item{
-     protected float damage;
-     private float maxDurability;
-     protected float durability;
-     private boolean broken = false;
-     protected String weaponType;
+public class Weapon extends Tool{
 
-     public Weapon(String name, String weaponType ,float damage, String desc){
-          this(name, weaponType,damage, desc, 100f);
+     enum weaponTypes {
+          MELEE,
+          RANGE
      }
 
-     public Weapon(String name, String weaponType,float damage, String desc, float maxDurability){
-          super(name, "Weapon", desc);
+     protected int damage;
+     protected weaponTypes weaponType;
+
+     public Weapon(String name, String desc, int damage, weaponTypes weaponType){
+          this(name, desc, damage, weaponType,100);
+     }
+
+     public Weapon(String name, String desc, int damage,weaponTypes weaponType, int maxDurability){
+          super(name, types.WEAPON, desc, maxDurability);
           this.damage = damage;
-          this.maxDurability = maxDurability;
-          this.durability = maxDurability;
           this.weaponType = weaponType;
      }
 
-     public void repair(float amount){
-          this.durability += amount;
-          if (this.durability >= this.maxDurability) {
-               this.durability = this.maxDurability;
-          }
-     }
-
-     public void reduceDurability(float amount){
-          this.durability -= amount;
-          if (this.durability <= 0) {
-               this.durability = 0;
-               this.broken = true;
-          }
-
-     }
-
-     public boolean isBroken(){
-          return this.broken;
-     }
-
-     public float getDurability(){
-          return this.durability;
-     }
-
-     public float getDamage(){
-          return this.damage;
-     }
-
      public String getWeaponType(){
-          return this.weaponType;
+          if (weaponType.equals(weaponTypes.MELEE)) {
+               return "Melee";
+          }else if (weaponType.equals(weaponTypes.RANGE)) {
+               return "Range";
+          }
+          return "Unknown";
      }
 }
-
