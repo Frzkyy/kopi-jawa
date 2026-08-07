@@ -1,3 +1,4 @@
+package learn;
 import java.util.Scanner;
 
 public class Hello {
@@ -20,5 +21,6 @@ public class Hello {
           }
 
           System.out.println("Benar Euuuy WWKWKWKWKWK");
+          input.close();
      }
 }
