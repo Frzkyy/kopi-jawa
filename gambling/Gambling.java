@@ -17,5 +17,7 @@ public class Gambling {
           }else{
                System.out.println("You loose, the aswer is " + answer);
           }
+
+          input.close();
      }
 }
