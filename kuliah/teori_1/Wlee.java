@@ -1,4 +1,4 @@
-package kuliah;
+package teori_1;
 
 public class Wlee {
      private int awal;
