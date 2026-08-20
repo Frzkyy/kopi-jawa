@@ -1,7 +1,6 @@
 package Tugas;
-
 /*
-WLEEEOEEOEOEOEOEOEOOEO
+Contoh Penggunaan Variabel
 */
 
 import java.util.Scanner;
